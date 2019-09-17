@@ -14,17 +14,23 @@ public class TopLevelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_top);
 
-        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
-                    Intent intent = new Intent(TopLevelActivity.this, DrinkCategoryActivity.class);
-                    startActivity(intent);
-                }
-            }
-        };
+       AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener(){
 
-        ListView listView = (ListView)findViewById(R.id.list_options);
-        listView.setOnItemClickListener(itemClickListener);
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+               switch (position) {
+                   case 0 :
+                   Intent intent = new Intent(TopLevelActivity.this, DrinkCategoryActivity.class);
+                   startActivity(intent);
+                   break;
+               }
+           }
+       };
+
+       ListView listView = (ListView)findViewById(R.id.list_options);
+       listView.setOnItemClickListener(itemClickListener);
     }
 }
+
+
